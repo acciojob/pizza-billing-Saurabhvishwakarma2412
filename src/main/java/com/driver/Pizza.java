@@ -16,6 +16,7 @@ public class Pizza {
     boolean extopping=false;
     boolean exbag=false;
 
+    boolean billgenrated=false;
 
 
     public Pizza(Boolean isVeg){
@@ -71,18 +72,21 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
-        bill="Base Price Of The Pizza: "+baseprice+"\n";
-        if(exchesse){
-            bill+="Extra Cheese Added: "+cheese+"\n";
-        }
-        if(extopping){
-            bill+="Extra Toppings Added: "+topping+"\n";
+        if(billgenrated==false) {
+            billgenrated=true;
+            bill = "Base Price Of The Pizza: " + baseprice + "\n";
+            if (exchesse) {
+                bill += "Extra Cheese Added: " + cheese + "\n";
+            }
+            if (extopping) {
+                bill += "Extra Toppings Added: " + topping + "\n";
 
+            }
+            if (exbag) {
+                bill += "Paperbag Added: " + bag + "\n";
+            }
+            bill += "Total Price: " + this.price;
         }
-        if(exbag){
-            bill+="Paperbag Added: "+bag+"\n";
-        }
-        bill+="Total Price: "+this.price;
         return this.bill;
     }
 }
